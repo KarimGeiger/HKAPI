@@ -1,6 +1,7 @@
 {
   "name": "karimgeiger/hkapi",
   "description": "API wrapper for Harman Kardon AVR with network capabilities and HK Remote support.",
+  "license": "MIT",
   "version": "1.0.0",
   "authors": [
     {
