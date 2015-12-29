@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harman>
+    <avr>
+        <common>
+            <control>
+                <name>{{ name }}</name>
+                <zone>{{ zone }}</zone>
+                <para>{{ para }}</para>
+            </control>
+        </common>
+    </avr>
+</harman>

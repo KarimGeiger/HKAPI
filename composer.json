@@ -1,0 +1,19 @@
+{
+  "name": "karimgeiger/hkapi",
+  "description": "API wrapper for Harman Kardon AVR with network capabilities and HK Remote support.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Karim Geiger",
+      "email": "geiger@karim.email"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "HKAPI\\": "lib/"
+    }
+  },
+  "require": {
+    "php": ">=5.6.0"
+  }
+}
