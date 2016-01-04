@@ -19,8 +19,16 @@ Of course, to use the autoloader functionality, you have to use composer.
 
 ### As composer dependency
 
+Add the package to your ``require-dev`` section in the ``composer.json``-file and update your project.
+
+```json
+"require-dev": {
+    "karimgeiger/hkapi": "1.0.x-dev"
+}
 ```
-composer require karimgeiger/hkapi
+
+```sh
+composer update
 ```
 
 ### As a base project
