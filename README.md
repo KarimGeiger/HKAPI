@@ -1,6 +1,6 @@
 # HKAPI
 
-I had a dream. I wanted to integrate my Harman Kardon AVR 370 in my SmartHome environment.
+I had a dream. I wanted to integrate my Harman Kardon AVR in my SmartHome environment.
 Many of the AV-Receivers by Harman Kardon supply network functionality for AirPlay and remote
 control using the HK Remote for Android or iOS. But you can't script an App like that.
 
@@ -11,13 +11,14 @@ functionality. And here we are. Feel free to browse the example.php file for a r
 
 Well.. almost nothing is required to get the API running. Of course, you need an compatible AV-Receiver.
 I don't know exactly which model is supported, so if you're running anything other than the AVR 370, let me know!
+I'm trying to collect a list of (in)compatible AVRs below. If you don't find yours, please help!
 
 On the client side you just have to be able to connect to sockets using PHP. Minimum required version is 5.6.
 Of course, to use the autoloader functionality, you have to use composer.
 
-## Basic usage
+## Basic Usage
 
-### As composer dependency
+### As Composer Dependency
 
 Add the package to your ``require-dev`` section in the ``composer.json``-file and update your project.
 
@@ -31,7 +32,7 @@ Add the package to your ``require-dev`` section in the ``composer.json``-file an
 composer update
 ```
 
-### As a base project
+### As a Base Project
 
 Generate the autoloader using ``composer install``.
 
@@ -55,7 +56,7 @@ $zone->selectSource('Radio');
 
 Before quitting now, please read the following section since it will save you a lot of time investigating.
 
-## What you should know
+## What You Should Know
 
 Since Harman Kardon did not want this API to be public, accessing it is a bit hairy. There is no documentation
 and most of the actions won't return any state at all. So you'll never know if something succeeded or failed.
@@ -117,6 +118,19 @@ The sources are exactly as shown on the on-screen menu, so in my case:
 * Source B
 * Source C
 * Source D
+
+## Tested Devices
+
+On this AVRs the API seems to work, according to some testers. I hope this list will increase over time.
+
+* Harman Kardon AVR 370
+
+## Known Issues / Incompatible Devices
+
+Here you can find a list of devices known to be incompatible to the current version of the API as
+well as an explanation of the problem.
+
+* Harman Kardon BDS 7773w - Probably wrong XML format, since this device does not support zones.
 
 ## Disclaimer
 
