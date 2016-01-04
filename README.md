@@ -17,9 +17,19 @@ Of course, to use the autoloader functionality, you have to use composer.
 
 ## Basic usage
 
+### As composer dependency
+
+```
+composer require karimgeiger/hkapi
+```
+
+### As a base project
+
 Generate the autoloader using ``composer install``.
 
 Everything else should be well-documented in the code itself, so just take a look at the example.php or use an IDE.
+
+### General
 
 You'll start with the API object:
 
