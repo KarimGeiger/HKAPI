@@ -6,8 +6,8 @@ $loader = require __DIR__ . '/vendor/autoload.php';
 
 // It's as easy as it can get. Just enter the IP and you're done.
 // Of course, there are other options as well, such as a specific
-// port or your zones. Default is Main Zone and Zone 2.
-$hk = new \HKAPI\API('192.168.1.2');
+// port or your device type.
+$hk = new \HKAPI\API('192.168.1.2', 10025, new \HKAPI\Devices\AVR());
 
 echo "Let's get started by turning on the main zone.\n";
 $hk->zone('Main Zone')->on();

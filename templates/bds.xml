@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harman>
+    <bds>
+        <common>
+            <control>
+                <name>{{ name }}</name>
+                <zone>{{ zone }}</zone>
+                <para>{{ para }}</para>
+            </control>
+        </common>
+    </bds>
+</harman>

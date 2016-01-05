@@ -40,10 +40,10 @@ Everything else should be well-documented in the code itself, so just take a loo
 
 ### General
 
-You'll start with the API object:
+You'll start with the API object. Select your model as third parameter (see: lib/Devices).
 
 ```php
-$hk = new \HKAPI\API('your_ip', 10025, ['Main Zone', 'Zone 2']);
+$hk = new \HKAPI\API('your_ip', 10025, new \HKAPI\Devices\AVR());
 ```
 
 After that you can use any available action on every predefined zone. For example:

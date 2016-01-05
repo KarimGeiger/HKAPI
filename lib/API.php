@@ -3,9 +3,11 @@
 namespace HKAPI;
 
 
+use HKAPI\Devices\AVR;
 use HKAPI\Exceptions\HKAPIInvalidZoneException;
 use HKAPI\Exceptions\HKAPISocketException;
 use HKAPI\Exceptions\HKAPITimeoutException;
+use HKAPI\Interfaces\DeviceInterface;
 
 class API
 {
@@ -18,11 +20,6 @@ class API
      * Timeout in seconds.
      */
     const RESPONSE_TIMEOUT = 2;
-
-    /**
-     * Default zones (for my AVR 370).
-     */
-    const DEFAULT_ZONES = ['Main Zone', 'Zone 2'];
 
     /**
      * @var string
@@ -45,19 +42,26 @@ class API
     protected $socket;
 
     /**
+     * @var DeviceInterface
+     */
+    protected $deviceType;
+
+    /**
      * API constructor.
      *
      * @param string $ip
      * @param int $port
+     * @param DeviceInterface $deviceType Default: AVR
      * @param array $zones List of available zones
      */
-    public function __construct($ip, $port = 10025, $zones = [])
+    public function __construct($ip, $port = 10025, DeviceInterface $deviceType = null, $zones = [])
     {
         $this->ip = $ip;
         $this->port = (int)$port;
+        $this->deviceType = $deviceType ?: new AVR();
 
         if (empty($zones)) {
-            $zones = self::DEFAULT_ZONES;
+            $zones = $this->deviceType->getDefaultZones();
         }
         foreach ($zones as $zone) {
             $this->zones[$zone] = new Zone($this, $zone);
@@ -122,7 +126,8 @@ class API
         fread($this->socket, 4096);
 
         fwrite($this->socket, sprintf(
-            "\r\nPOST AVR HTTP/1.1\r\nHost: 10.21.219.218:10025\r\nUser-Agent: Harman Kardon AVR Remote Controller /2.0\r\nContent-Length: %d\r\n%s",
+            "\r\n%s\r\nContent-Length: %d\r\n%s",
+            $this->deviceType->getHeader(),
             strlen($data),
             $data
         ));
@@ -161,12 +166,22 @@ class API
      * @param string $template Name of template file.
      * @return string
      */
-    public function generateRequest($name, $zone, $para = null, $template = 'hk')
+    public function generateRequest($name, $zone, $para = null, $template = 'avr')
     {
         return trim(str_replace(
             ['{{ name }}', '{{ zone }}', '{{ para }}'],
             [$name, $zone, $para],
             file_get_contents(__DIR__ . self::TEMPLATE_PATH . $template . '.xml')
         ));
+    }
+
+    /**
+     * Get device type.
+     *
+     * @return DeviceInterface
+     */
+    public function getDeviceType()
+    {
+        return $this->deviceType;
     }
 }
