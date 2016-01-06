@@ -44,6 +44,6 @@ class BDS implements DeviceInterface
      */
     public function getHeader()
     {
-        return "POST HK_APP HTTP/1.1\r\nHost: :10025\r\nHarman Kardon BDS Remote Controller/1.0";
+        return "POST HK_APP HTTP/1.1\r\nHost: :10025\r\nUser-Agent: Harman Kardon BDS Remote Controller/1.0";
     }
 }
