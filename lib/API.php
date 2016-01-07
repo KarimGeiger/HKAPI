@@ -126,7 +126,7 @@ class API
         fread($this->socket, 4096);
 
         fwrite($this->socket, sprintf(
-            "\r\n%s\r\nContent-Length: %d\r\n%s",
+            "%s\r\nContent-Length: %d\r\n\r\n%s",
             $this->deviceType->getHeader(),
             strlen($data),
             $data
