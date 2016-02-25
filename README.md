@@ -63,10 +63,12 @@ and most of the actions won't return any state at all. So you'll never know if s
 
 Also, we don't know how long each request takes to send. Keep that in mind when sending multiple requests at once.
 
-Another great "feature" of the AVRs is (at least of mine), that the server handling all requests running on your
+Another great "feature" of the AVRs is, that the server handling all requests running on your
 AVR will shut down until next power on (using the button or the remote). This means you cannot control the AVR
-at all after that period of time. A workaround for this is (I think), to send ``heartAlive()`` requests every
-15 minutes or so. I'm still investigating this.
+at all after that period of time. A workaround for this is, to send ``heartAlive()`` requests every
+15 minutes or so. Please note, that this behaviour is different for each device. Some devices shut down immediately
+after issuing the "off"-command. You can try
+[using this workaround.](https://github.com/KarimGeiger/HKAPI/commit/6036d4f42b94f23cf62b1186ca95587f42e10e04#commitcomment-16324589)
 
 ## Available Actions
 
@@ -124,6 +126,8 @@ The sources are exactly as shown on the on-screen menu, so in my case:
 On this AVRs the API seems to work, according to some testers. I hope this list will increase over time.
 
 * Harman Kardon AVR 370
+* Harman Kardon HK 3700 - Works, but
+[has problems while waking up.](https://github.com/KarimGeiger/HKAPI/commit/6036d4f42b94f23cf62b1186ca95587f42e10e04#commitcomment-16324589)
 
 ## Known Issues / Incompatible Devices
 
