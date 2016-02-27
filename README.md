@@ -79,6 +79,7 @@ run your own requests by using API::generateRequest(), API::sendRequest() and AP
 
 * ``void on()`` - Turn AVR on.
 * ``void off()`` - Turn AVR off.
+* ``void sleep()`` - Toggle sleep or set sleep timer.
 * ``void play()`` - Play current track.
 * ``void pause()`` - Pause current track.
 * ``void forward()`` - Go forward in current track.
@@ -124,13 +125,16 @@ The sources are exactly as shown on the on-screen menu, so in my case:
 On this AVRs the API seems to work, according to some testers. I hope this list will increase over time.
 
 * Harman Kardon AVR 370
+* Harman Kardon HK 3700 - Works, but
+[has problems while waking up.](https://github.com/KarimGeiger/HKAPI/commit/6036d4f42b94f23cf62b1186ca95587f42e10e04#commitcomment-16324589)
+* Harman Kardon BDS 7773w
 
 ## Known Issues / Incompatible Devices
 
 Here you can find a list of devices known to be incompatible to the current version of the API as
 well as an explanation of the problem.
 
-* Harman Kardon BDS 7773w - Probably wrong XML format, since this device does not support zones.
+* None known
 
 ## Disclaimer
 

@@ -4,7 +4,7 @@ namespace HKAPI\Actions;
 
 use HKAPI\Interfaces\ActionInterface;
 
-class On implements ActionInterface
+class Sleep implements ActionInterface
 {
     /**
      * Get command for action.

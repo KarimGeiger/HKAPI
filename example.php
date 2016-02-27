@@ -11,7 +11,7 @@ $hk = new \HKAPI\API('192.168.1.2', 10025, new \HKAPI\Devices\AVR());
 
 echo "Let's get started by turning on the main zone.\n";
 $hk->zone('Main Zone')->on();
-// Note that some AVRs shut down the API server after some time.
+// Note that some devices shut down the API server after some time.
 // More information about that on the README.md.
 
 sleep(5);
@@ -33,6 +33,8 @@ sleep(5);
 
 echo "Sleep tight!\n";
 $hk->zone('Main Zone')->off();
+// You might not be able to turn your device back on again,
+// consider using the sleep() command instead.
 
 sleep(5);
 
