@@ -66,7 +66,12 @@ class Zone
     public function run(ActionInterface $action)
     {
         $this->api->sendRequest(
-            $this->api->generateRequest($action->getName(), $this->name, $action->getParams())
+            $this->api->generateRequest(
+                $action->getName(),
+                $this->name,
+                $action->getParams(),
+                $this->api->getDeviceType()->getTemplate()
+            )
         );
         if ($action->hasResponse()) {
             return $this->api->readResponse();

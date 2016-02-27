@@ -40,10 +40,10 @@ Everything else should be well-documented in the code itself, so just take a loo
 
 ### General
 
-You'll start with the API object:
+You'll start with the API object. Select your model as third parameter (see: lib/Devices).
 
 ```php
-$hk = new \HKAPI\API('your_ip', 10025, ['Main Zone', 'Zone 2']);
+$hk = new \HKAPI\API('your_ip', 10025, new \HKAPI\Devices\AVR());
 ```
 
 After that you can use any available action on every predefined zone. For example:
@@ -63,8 +63,8 @@ and most of the actions won't return any state at all. So you'll never know if s
 
 Also, we don't know how long each request takes to send. Keep that in mind when sending multiple requests at once.
 
-Another great "feature" of the AVRs is, that the server handling all requests running on your
-AVR will shut down until next power on (using the button or the remote). This means you cannot control the AVR
+Another great "feature" of the devices is, that the server handling all requests running on your
+device will shut down until next power on (using the button or the remote). This means you cannot control the AVR
 at all after that period of time. A workaround for this is, to send ``heartAlive()`` requests every
 15 minutes or so. Please note, that this behaviour is different for each device. Some devices shut down immediately
 after issuing the "off"-command. You can try
@@ -81,6 +81,7 @@ run your own requests by using API::generateRequest(), API::sendRequest() and AP
 
 * ``void on()`` - Turn AVR on.
 * ``void off()`` - Turn AVR off.
+* ``void sleep()`` - Toggle sleep or set sleep timer.
 * ``void play()`` - Play current track.
 * ``void pause()`` - Pause current track.
 * ``void forward()`` - Go forward in current track.
@@ -128,13 +129,14 @@ On this AVRs the API seems to work, according to some testers. I hope this list 
 * Harman Kardon AVR 370
 * Harman Kardon HK 3700 - Works, but
 [has problems while waking up.](https://github.com/KarimGeiger/HKAPI/commit/6036d4f42b94f23cf62b1186ca95587f42e10e04#commitcomment-16324589)
+* Harman Kardon BDS 7773w
 
 ## Known Issues / Incompatible Devices
 
 Here you can find a list of devices known to be incompatible to the current version of the API as
 well as an explanation of the problem.
 
-* Harman Kardon BDS 7773w - Probably wrong XML format, since this device does not support zones.
+* None known
 
 ## Disclaimer
 
