@@ -131,6 +131,9 @@ On this devices the API seems to work, according to some testers. I hope this li
 * Harman Kardon HK 3700 - Works, but [has problems while waking up.](https://github.com/KarimGeiger/HKAPI/commit/6036d4f42b94f23cf62b1186ca95587f42e10e04#commitcomment-16324589)
 * Harman Kardon BDS 7773w
 * Harman Kardon BDS 375
+* Harman Kardon BDS 277
+* Harman Kardon AVR 1510
+* Harman Kardon AVR 161S
 
 ## Known Issues / Incompatible Devices
 
